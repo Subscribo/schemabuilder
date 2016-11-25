@@ -11,7 +11,7 @@ Schema builder for building models, migrations, etc from schema
 1.2 Dependency under "require" or "require-dev" keys
 
 ```json
-    "subscribo/schemabuilder": "@dev"
+    "subscribo/schemabuilder": "~0.1.0"
 ```
 
 1.3 To use with Laravel (4.2) add

@@ -20,8 +20,8 @@
     "require": {
         "php": "~5.4",
         "symfony/yaml": "~2.6@stable",
-        "subscribo/dependencyresolver": "@dev",
-        "subscribo/serviceprovider": "@dev"
+        "subscribo/dependencyresolver": "~0.1.0",
+        "subscribo/serviceprovider": "~0.1.0"
     },
     "suggest": {
         "laravel/framework": "This package have been build to work with The Laravel Framework version 4.2. Version 5.0 can also be used.",
@@ -32,11 +32,6 @@
         "psr-4": {
             "Subscribo\\SchemaBuilder\\": "src/Subscribo/SchemaBuilder/",
             "Fuel\\Core\\": "src/lib/fuel/core/src/Fuel/Core/"
-        }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.0.x-dev"
         }
     }
 }

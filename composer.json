@@ -18,10 +18,10 @@
         }
     ],
     "require": {
-        "php": "~5.4",
+        "php": "^5.4 || ^7.0" ,
         "symfony/yaml": "~2.6@stable",
-        "subscribo/dependencyresolver": "~0.1.0",
-        "subscribo/serviceprovider": "~0.1.0"
+        "subscribo/dependencyresolver": "~0.1.1",
+        "subscribo/serviceprovider": "~0.1.1"
     },
     "suggest": {
         "laravel/framework": "This package have been build to work with The Laravel Framework version 4.2. Version 5.0 can also be used.",

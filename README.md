@@ -14,7 +14,7 @@ Schema builder for building models, migrations, etc from schema
     "subscribo/schemabuilder": "~0.1.0"
 ```
 
-1.3 To use with Laravel (4.2) add
+1.3 To use with Laravel add
 
 ```php
     '\\Subscribo\\SchemaBuilder\\SchemaBuilderServiceProvider',

@@ -34,7 +34,9 @@ in app/start/artisan.php for conditional registration
 
 ## Usage
 
-1. Put your schema.yml into root directory of your project
+1. Put your schema.yml into config/schemabuilder directory of your project
+(or modify respective constant of BuildCommandAbstract).
+You may also use doc/examples/schema.yml and modify it as needed.
 
 2. If needed, put AbstractModel from doc/examples into your project
 

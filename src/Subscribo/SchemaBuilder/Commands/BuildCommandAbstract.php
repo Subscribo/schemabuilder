@@ -7,7 +7,7 @@ abstract class BuildCommandAbstract extends Command {
 
     const CONFIG_DIR = 'config/';
     const MIGRATIONS_DIR = 'database/migrations/';
-    const SCHEMA_DIR = 'subscribo/config/packages/schemabuilder/';
+    const SCHEMA_DIR = 'config/schemabuilder/';
 
 
     protected function _createFile($filePath, $content, $mode = 'exception')

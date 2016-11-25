@@ -6,8 +6,7 @@
         "subscribo",
         "schema"
     ],
-    "homepage": "http://www.subscribo.io",
-    "license": "proprietary",
+    "license": "MIT",
     "authors": [
         {
             "name": "Slavo",

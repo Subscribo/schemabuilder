@@ -19,7 +19,7 @@
     ],
     "require": {
         "php": "^5.4 || ^7.0" ,
-        "symfony/yaml": "~2.6@stable",
+        "symfony/yaml": "^2.6 || ^3.0",
         "subscribo/dependencyresolver": "~0.1.1",
         "subscribo/serviceprovider": "~0.1.1"
     },

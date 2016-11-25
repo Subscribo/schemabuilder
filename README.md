@@ -36,7 +36,14 @@ in app/start/artisan.php for conditional registration
 
 1. Put your schema.yml into root directory of your project
 
-2. Run from command line
+2. If needed, put AbstractModel from doc/examples into your project
+
+3. Setup autoload for needed classes and namespaces in your composer.json and run
+```bash
+composer dump-autoload
+```
+
+4. Run from command line
 
 ```bash
 php artisan build

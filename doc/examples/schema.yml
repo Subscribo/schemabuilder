@@ -1,0 +1,206 @@
+doctype: MODEL_SCHEMA-v1.0
+
+default_model_options:
+    primary_key:
+        name: id
+        type: int
+        primary: true
+        description: Primary key
+        required: false
+        fillable: false
+        guarded: true
+        unsigned: true
+        administrator:
+            list: true
+            edit: true
+    timestamps:
+        created_at:
+            type: datetime
+            description: Timestamp (datetime) when model was created
+            migration_setup: false
+            required: false
+            fillable: false
+            guarded: true
+            administrator:
+                list: true
+                edit: false
+        updated_at:
+            type: datetime
+            description: Timestamp (datetime) when model was last modified
+            migration_setup: false
+            required: false
+            fillable: false
+            guarded: true
+            administrator:
+                list: true
+                edit: false
+    soft_delete_timestamps:
+        deleted_at:
+            type: datetime
+            description: Timestamp (datetime) when model was soft deleted
+            migration_setup: false
+            required: false
+            fillable: false
+            guarded: true
+            administrator:
+                list: true
+                edit: false
+    migration_timestamps: true
+    soft_delete: false
+    automatic_enum_constants: true
+    title: null
+    description: null
+    dates: []
+    comments: []
+    constants: []
+    rules: []
+    modification_rules_before_validation: []
+    modification_rules_after_validation: []
+    hidden: []
+    fillable: []
+    guarded: ['*']
+    foreign_objects: []
+    base_model_extends: "\\App\\Models\\ModelBase\\AbstractModel"
+    model_namespace: "App\\Models"
+    model_directory: "app/models/Models/"
+    model_base_namespace: "App\\Models\\Bases"
+    model_base_directory: "app/models/Bases/"
+    model_translation_namespace: "App\\Models\\Translations"
+    model_translation_directory: "app/models/Translations/"
+    model_translation_table_suffix: "_translations"
+    generate:
+        migration: overwrite
+        model:
+            base: overwrite
+            draft: skip
+        administrator: overwrite
+    administrator_menu: Other
+    administrator_menu_order: null
+    is_pivot_table: null
+    is_translation_table: null
+
+default_translation_model_options:
+    is_translation_model: true
+    automatic_enum_constants: false
+    administrator_menu: Translations
+    generate:
+        model:
+            draft: false
+    fields:
+        translated_for_locale:
+            name: translated_for_locale
+            type: string
+            description: Locale of translation
+
+default_field_options:
+    type: null
+    type_hint: null
+    db_type: null
+    db_length: null #This is the size of specific DB field
+    db_scale: null  #This is the scale for supporting DB types
+    db_foreign_key: null
+    unsigned: null
+    enum_list: []
+    migration_setup: null
+    related_to: null
+    relation_attributes: null
+    relation: null
+    nullable: false
+    required: true
+    primary: false
+    unique: false
+    index: false
+    hidden: false
+    filterable_by: true
+    title: null
+    description: null
+    comments: []
+    translate: null
+    rules: []
+    constants: []
+    automatic_enum_constants: null
+    modification_rules_before_validation: []
+    modification_rules_after_validation: []
+    fillable: null
+    guarded: null
+    administrator:
+        list: true
+        edit: true
+        filter: true
+        edit_type: text
+        filter_type: text
+
+
+model_options:
+
+    users:
+        administrator_menu: Users
+
+    persons:
+        administrator_menu: Users
+        relations:
+              has_many:
+                    - users
+
+
+    user_groups:
+        administrator_menu: ACL
+        relations:
+            many_to_many:
+                - users
+                - acl_roles
+
+    acl_roles:
+        administrator_menu: ACL
+        relations:
+            many_to_many:
+                - acl_rights
+                - acl_groups
+
+    acl_rights:
+        administrator_menu: ACL
+
+
+model_fields:
+
+    users:
+    - username
+    - email null
+    - password (password) null hidden
+    - type (enum from guest standard administrator)
+    - remember_token null hidden
+    - email_confirmed (bool) null
+    - person_id null hidden → persons (show_from)
+
+    persons:
+    - id hidden
+    - salutation null
+    - prefix null
+    - first_name null
+    - middle_names null
+    - infix null
+    - last_name representative
+    - suffix null
+    - gender (enum from man woman) null
+    - date_of_birth (date) null
+
+
+
+    user_groups:
+    - identifier (identifier) unique representative // Identifier for system
+    - name // Human readable name
+    - description null
+    - comment null
+
+    acl_roles:
+    - identifier (identifier) unique representative // Identifier for system
+    - name // Human readable name
+    - description null
+    - comment null
+
+    acl_rights:
+    - identifier (identifier) unique representative // Identifier for system
+    - name // Human readable name
+    - description null
+    - comment null
+

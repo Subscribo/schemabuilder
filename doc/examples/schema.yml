@@ -155,7 +155,7 @@ model_options:
         relations:
             many_to_many:
                 - acl_rights
-                - acl_groups
+                - user_groups
 
     acl_rights:
         administrator_menu: ACL

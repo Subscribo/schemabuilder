@@ -7,6 +7,7 @@ class SchemaBuilderServiceProvider extends ServiceProvider {
     public function register()
     {
         $this->app->register('\\Subscribo\\DependencyResolver\\Integration\\Laravel\\DependencyResolverServiceProvider');
+        $this->app->register('\\Subscribo\\Config\\Integration\\Laravel\\ConfigServiceProvider');
         $commandSet = array(
             '\\Subscribo\\SchemaBuilder\\Commands\\BuildCommand',
             '\\Subscribo\\SchemaBuilder\\Commands\\BuildSchemaCommand',

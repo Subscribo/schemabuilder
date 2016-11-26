@@ -55,8 +55,8 @@ class <?php echo $migrationName; ?> extends Migration
             $lowerCaseMethodName = $field['db_type'];
         }
         $filtered = array_where($methods,
-            function($key, $value) use ($lowerCaseMethodName)
-            { return (strtolower($key) == $lowerCaseMethodName); }
+            function($value, $key) use ($lowerCaseMethodName)
+            { return (strtolower($key) === $lowerCaseMethodName); }
         );
         if (empty($filtered)) {
             throw new \Exception("Method '".$lowerCaseMethodName."' not defined for schema field setup (Field name: '".$field['name']."', Table name: '".$options['table_name']."').");

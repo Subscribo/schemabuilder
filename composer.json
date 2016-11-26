@@ -24,7 +24,7 @@
         "subscribo/serviceprovider": "^0.1.2",
         "subscribo/config": "^0.1.0",
         "subscribo/environment": "^0.1.0",
-        "illuminate/support": "<5.3"
+        "illuminate/support": "^5.3"
 
     },
     "suggest": {

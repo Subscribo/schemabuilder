@@ -55,7 +55,7 @@ class <?php echo $migrationName; ?> extends Migration
             $lowerCaseMethodName = $field['db_type'];
         }
         $filtered = array_where($methods,
-            function($key, $value) use ($lowerCaseMethodName)
+            function($value, $key) use ($lowerCaseMethodName)
             { return (strtolower($key) === $lowerCaseMethodName); }
         );
         if (empty($filtered)) {

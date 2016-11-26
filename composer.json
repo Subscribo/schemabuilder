@@ -23,7 +23,9 @@
         "subscribo/dependencyresolver": "^0.1.1",
         "subscribo/serviceprovider": "^0.1.2",
         "subscribo/config": "^0.1.0",
-        "subscribo/environment": "^0.1.0"
+        "subscribo/environment": "^0.1.0",
+        "laravel/support": "<5.3"
+
     },
     "suggest": {
         "laravel/framework": "This package have been build to work with The Laravel Framework version 4.2. Version 5.0 can also be used.",

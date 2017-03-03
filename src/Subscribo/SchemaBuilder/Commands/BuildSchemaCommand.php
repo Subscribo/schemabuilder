@@ -1719,10 +1719,10 @@ class BuildSchemaCommand extends BuildCommandAbstract {
                 $this->_pushValueIfNotPresent($validationRule, $rules);
             break;
             case 'text':
-            case 'blob':
                 $this->_pushValueIfNotPresent('max:65535', $rules);
             break;
             case 'longtext':
+            case 'blob':
             case 'json':
             case 'jsonb':
                 $this->_pushValueIfNotPresent('max:4294967295', $rules);

@@ -35,8 +35,8 @@ class <?php echo $migrationName; ?> extends Migration
 <?php
     $methods = array('bigIncrements' => 1, 'bigInteger' => 1, 'binary' => 1, 'boolean' => 1, 'char' => 2, 'date' => 1,
         'dateTime' => 1, 'decimal' => 3, 'double' => 3, 'enum' => -2, 'float' => 3, 'increments' => 1, 'integer' => 1,
-        'longText' => 1, 'mediumInteger' => 1, 'mediumText' => 1, 'smallInteger' => 1, 'tinyInteger' => 1, 'string' => 2,
-        'text' => 1, 'time' => 1, 'timestamp' => 1);
+        'json' => 1, 'jsonb' => 1, 'longText' => 1, 'mediumInteger' => 1, 'mediumText' => 1, 'smallInteger' => 1,
+        'tinyInteger' => 1, 'string' => 2, 'text' => 1, 'time' => 1, 'timestamp' => 1, 'uuid' => 1);
     foreach($fields as $field) {
         if ( ! $field['migration_setup']) {
             continue;

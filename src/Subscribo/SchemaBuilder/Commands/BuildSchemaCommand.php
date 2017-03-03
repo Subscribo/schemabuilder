@@ -1570,7 +1570,7 @@ class BuildSchemaCommand extends BuildCommandAbstract {
             }
         }
         // Let's find any string-like field, which is always present and not a password
-        $preferredDbTypes = array('varchar', 'char', 'tinytext', 'text', 'mediumtext', 'longtext');
+        $preferredDbTypes = array('uuid', 'varchar', 'char', 'tinytext', 'text', 'mediumtext', 'longtext');
         foreach($preferredDbTypes as $preferredDbType) {
             foreach($fields as $field) {
                 if (($preferredDbType === $field['db_type'])
@@ -1639,7 +1639,7 @@ class BuildSchemaCommand extends BuildCommandAbstract {
         if ( ! is_array($modificationRulesAfterValidation)) {
             $modificationRulesAfterValidation = explode('|', $modificationRulesAfterValidation);
         }
-        if ( false === array_search($field['db_type'], array('text', 'blob', 'longtext', 'mediumtext', 'varchar', 'char'))) {
+        if ( false === array_search($field['db_type'], array('text', 'blob', 'longtext', 'mediumtext', 'varchar', 'char', 'uuid', 'json', 'jsonb'))) {
             $this->_pushValueIfNotPresent('non_printable_to_null', $modificationRulesAfterValidation);
         }
         if (  ( ! array_key_exists('required', $field))
@@ -1723,6 +1723,8 @@ class BuildSchemaCommand extends BuildCommandAbstract {
                 $this->_pushValueIfNotPresent('max:65535', $rules);
             break;
             case 'longtext':
+            case 'json':
+            case 'jsonb':
                 $this->_pushValueIfNotPresent('max:4294967295', $rules);
             break;
             case 'mediumtext':
@@ -1731,6 +1733,9 @@ class BuildSchemaCommand extends BuildCommandAbstract {
             case 'varchar':
             case 'char':
                 $this->_pushValueIfNotPresent(('max:'.$field['db_length']), $rules);
+            break;
+            case 'uuid':
+                $this->_pushValueIfNotPresent('max:32', $rules);
             break;
         }
         if ( ! empty($field['unique'])) {
@@ -2007,6 +2012,18 @@ class BuildSchemaCommand extends BuildCommandAbstract {
                 $dbTypeBase = 'varchar';
                 $dbLength = array_shift($parts);
             break;
+            case 'json':
+                $typeHint   = 'string';
+                $dbTypeBase = 'json';
+            break;
+            case 'jsonb':
+                $typeHint   = 'string';
+                $dbTypeBase = 'jsonb';
+            break;
+            case 'uuid':
+                $typeHint   = 'string';
+                $dbTypeBase = 'uuid';
+            break;
             case 'char':
             case 'character':
                 $typeHint   = 'string';
@@ -2154,6 +2171,9 @@ class BuildSchemaCommand extends BuildCommandAbstract {
             case 'varchar':
             case 'char':
             case 'blob':
+            case 'uuid':
+            case 'json':
+            case 'jsonb':
             default:
                 $result = array(
                     'edit_type' => 'text',
